@@ -32,15 +32,15 @@ export default function MovieReviews() {
       <ul className={css.list}>
         {loader && <p>Fetching data. Please wait...</p>}
         {error && <p>Something went wrong...</p>}
-        {reviewsData
-          ? reviewsData.map((reviewData) => (
-              <li key={reviewData.id} className={css.item}>
-                <p>{reviewData.author}</p>
-                <p>{reviewData.created_at}</p>
-                <p>{reviewData.content}</p>
-              </li>
-            ))
-          : ""}
+        {!reviewsData.length && <p>No reviews found.</p>} {/* Check length */}
+        {reviewsData.length > 0 &&
+          reviewsData.map((reviewData) => (
+            <li key={reviewData.id} className={css.item}>
+              <p>{reviewData.author}</p>
+              <p>{reviewData.created_at}</p>
+              <p>{reviewData.content}</p>
+            </li>
+          ))}
       </ul>
       <div className={css.status}>
         {loader && <p>Fetching data. Please wait...</p>}
