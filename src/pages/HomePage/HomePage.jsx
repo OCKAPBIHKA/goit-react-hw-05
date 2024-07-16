@@ -37,6 +37,7 @@ export default function HomePage() {
 
   return (
     <section>
+      <h1>Trending today</h1>
       <ul className={css.list}>
         {moviesData && <MovieList moviesData={moviesData} />}
       </ul>
